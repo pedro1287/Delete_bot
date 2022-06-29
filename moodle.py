@@ -63,7 +63,7 @@ def delete(user,passw,host,urls,proxy):
 	if 'pluginfile.php' in urls:
 		delevent = f'{host}/lib/ajax/service.php?sesskey={sesskey}&info=core_calendar_delete_calendar_events'
 		dataevent =[{"index":0,"methodname":"core_calendar_delete_calendar_events","args":{"events":[{"eventid":int(itemid),"repeat":False}]}}]
-		response = session.post(delevent, data=dataevent,headers=header, proxies=proxy)
+		response = session.post(delevent, json=dataevent,headers=header, proxies=proxy)
 		prob = 'borre'
 		
 	else:

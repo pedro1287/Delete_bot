@@ -71,7 +71,7 @@ async def messages_control(c: Client, m: Message):
 		
 		if '?token=' in urls:
 			token = urls.split('=')[1]
-			urlsfix = urls.replace(f'?token={token}','')
+			urlsfix = urls.replace('webservice/pluginfile.php','pluginfile.php').replace(f'?token={token}','')
 			
 		if users == {}:
 			await m.reply('Credenciales sin guardar💢')
@@ -109,7 +109,7 @@ async def messages_control(c: Client, m: Message):
 					
 					if '?token=' in line:
 						token = line.split('=')[1]
-						linefix = line.replace(f'?token={token}','')
+						linefix = line.replace('webservice/pluginfile.php','pluginfile.php').replace(f'?token={token}','')
 						
 					ret = delete(userdatat['user'],userdatat['passw'],userdatat['host'],linefix,proxy)
 					
